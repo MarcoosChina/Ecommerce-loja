@@ -79,10 +79,10 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
-| [ ] | FND-001 | Estrutura base Angular | todo | alta | --- |
-| [ ] | FND-002 | Configurar Git/GitHub | todo | alta | --- |
-| [ ] | FND-003 | Definir estrutura de pastas | todo | alta | --- |
-| [ ] | FND-004 | Criar `.gitignore` | todo | alta | --- |
+| [x] | FND-001 | Estrutura base Angular | todo | alta | --- |
+| [x] | FND-002 | Configurar Git/GitHub | todo | alta | --- |
+| [] | FND-003 | Definir estrutura de pastas | todo | alta | --- |
+| [x] | FND-004 | Criar `.gitignore` | todo | alta | --- |
 | [ ] | FND-005 | Definir padrão de commits | todo | média | --- |
 | [ ] | FND-006 | Documentar fluxo de branches/PRs | todo | média | --- |
 | [ ] | FND-007 | Avaliar estrutura Node.js | todo | alta | --- |
