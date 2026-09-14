@@ -1,7 +1,7 @@
 # Backlog MVP — E-commerce da Marca
 
-> **Versão:** 0.2.3 (regra de HTML semântico)
-> **Status geral do projeto:** ainda não iniciado — nenhum código escrito
+> **Versão:** 0.2.5 (fundação concluída)
+> **Status geral do projeto:** iniciado — Angular criado, repositório conectado ao GitHub
 > **Nome da marca:** a definir
 > **Nicho:** roupas oversized para treino
 > **Repositório:** `Ecommerce-loja`
@@ -79,17 +79,17 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
-| [x] | FND-001 | Estrutura base Angular | todo | alta | --- |
-| [x] | FND-002 | Configurar Git/GitHub | todo | alta | --- |
-| [] | FND-003 | Definir estrutura de pastas | todo | alta | --- |
-| [x] | FND-004 | Criar `.gitignore` | todo | alta | --- |
+| [x] | FND-001 | Estrutura base Angular | concluído | alta | `main` (bootstrap) |
+| [x] | FND-002 | Configurar Git/GitHub | concluído | alta | `main` (bootstrap) |
+| [x] | FND-003 | Definir estrutura de pastas | concluído | alta | `feature/folder-structure` (PR #5) |
+| [x] | FND-004 | Criar `.gitignore` | concluído | alta | `main` (bootstrap) |
 | [ ] | FND-005 | Definir padrão de commits | todo | média | --- |
 | [ ] | FND-006 | Documentar fluxo de branches/PRs | todo | média | --- |
 | [ ] | FND-007 | Avaliar estrutura Node.js | todo | alta | --- |
 | [ ] | FND-008 | Criar API Node.js inicial | todo | alta | --- |
 | [ ] | FND-009 | Criar `.env.example` quando necessário | todo | média | --- |
 
-**TODO:** finalizar organização do repositório · definir estrutura de diretórios · iniciar API Node.js quando o front-end estiver pronto para integração
+**TODO:** Épico 01 concluído para o MVP atual · iniciar API Node.js (FND-007/008) quando o front-end estiver pronto para integração
 
 ### Épico 02 — Marca e identidade
 
@@ -339,6 +339,7 @@ Uma tarefa só é `concluído` (e só deve receber `[x]`) quando: implementaçã
 - **DEC-003 — TypeScript no back-end** (em aberto): avaliar conforme evolução
 - **DEC-004 — Banco de dados** (em aberto): escolher quando a persistência se tornar necessária
 - **DEC-005 — Dados mockados antes da API** (definida): front-end pode usar dados locais/mockados até a API estar pronta; integração real em etapa separada
+- **DEC-006 — Commit inicial de bootstrap direto na `main`** (definida): o primeiro commit (estrutura Angular + Git/GitHub + `.gitignore`) foi feito direto na `main`, sem branch/PR, por ser configuração inicial do projeto. **A partir daqui, todo o fluxo padrão (branch → commit → PR → revisão → merge) passa a ser seguido sem exceções.**
 
 ## 11. Fora do MVP
 
@@ -360,6 +361,37 @@ Programa de fidelidade, cupons, avaliações, wishlist, recomendações, recuper
 ### Decisões
 - Alguma decisão técnica tomada nesse momento, se houver
 ```
+
+### v0.2.5 — Fundação concluída
+
+**Concluído:**
+
+- [x] FND-003 — Estrutura de pastas criada (`components/`, `services/`, `models/`, `data/`) via branch `feature/folder-structure`, PR #5 mergeado sem conflitos
+- [x] Primeiro fluxo completo de branch → PR → merge → atualização de backlog realizado com sucesso
+- [x] `main` local atualizada com `git pull`
+
+**TODO — próxima etapa:**
+
+- [ ] Iniciar Épico 03 (Layout e navegação) — começar pelo Header (UI-001)
+- [ ] Criar Issue e branch `feature/header` para a próxima tarefa
+
+### v0.2.4 — Primeiras tarefas concluídas
+
+**Concluído:**
+
+- [x] FND-001 — Estrutura base Angular criada (`ng new`)
+- [x] FND-002 — Git inicializado e repositório conectado ao GitHub
+- [x] FND-004 — `.gitignore` gerado automaticamente pelo Angular
+
+**Decisões:**
+
+- [x] Registrada a DEC-006: commit inicial de bootstrap feito direto na `main`, como exceção única. Fluxo de branch/PR passa a valer normalmente a partir de agora.
+
+**TODO — próxima etapa:**
+
+- [ ] Criar branch `feature/folder-structure` para resolver FND-003
+- [ ] Fechar as Issues correspondentes a FND-001, FND-002 e FND-004 no GitHub
+- [ ] Manter a Issue de FND-003 aberta até as pastas serem criadas
 
 ### v0.2.3 — Regra de HTML semântico e boas práticas
 
