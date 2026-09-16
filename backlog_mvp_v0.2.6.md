@@ -1,6 +1,6 @@
 # Backlog MVP — E-commerce da Marca
 
-> **Versão:** 0.2.5 (fundação concluída)
+> **Versão:** 0.2.6 (Header concluído)
 > **Status geral do projeto:** iniciado — Angular criado, repositório conectado ao GitHub
 > **Nome da marca:** a definir
 > **Nicho:** roupas oversized para treino
@@ -106,7 +106,7 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
-| [ ] | UI-001 | Header | todo | alta | --- |
+| [x] | UI-001 | Header | concluído | alta | `feature/header` |
 | [ ] | UI-002 | Navegação principal | todo | alta | --- |
 | [ ] | UI-003 | Layout base | todo | alta | --- |
 | [ ] | UI-004 | Home | todo | alta | --- |
@@ -121,7 +121,7 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
-| [ ] | CAT-001 | Modelo `Product` inicial | todo | alta | --- |
+| [x] | CAT-001 | Modelo `Product` inicial | concluído | alta | `feature/header` |
 | [ ] | CAT-002 | ProductService | todo | alta | --- |
 | [ ] | CAT-003 | ProductList | todo | alta | --- |
 | [ ] | CAT-004 | ProductCard | todo | alta | --- |
@@ -161,7 +161,7 @@ Product {
 
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
-| [ ] | CRT-001 | CartService | todo | alta | --- |
+| [x] | CRT-001 | CartService | concluído | alta | `feature/header` |
 | [ ] | CRT-002 | Adicionar produto | todo | alta | --- |
 | [ ] | CRT-003 | Remover produto | todo | alta | --- |
 | [ ] | CRT-004 | Persistência local | todo | alta | --- |
@@ -174,6 +174,8 @@ Product {
 | [ ] | CRT-011 | Resumo do pedido | todo | média | --- |
 
 **Regra:** produtos iguais com tamanhos diferentes devem poder ser tratados como itens distintos.
+
+**Nota:** `CartService` foi criado e está funcional (usado pelo Header via `totalItems()`), mas `add()`/`remove()` ainda não foram testados na prática — isso só será possível quando o `ProductCard` existir (Épico 04) para de fato adicionar um produto ao carrinho.
 
 ### Épico 07 — Checkout simulado
 
@@ -361,6 +363,20 @@ Programa de fidelidade, cupons, avaliações, wishlist, recomendações, recuper
 ### Decisões
 - Alguma decisão técnica tomada nesse momento, se houver
 ```
+
+### v0.2.6 — Header concluído
+
+**Concluído:**
+
+- [x] UI-001 — Header criado (semântico, menu hambúrguer, badge condicional, Flexbox space-between), testado em larguras mobile
+- [x] CAT-001 — Interface `Product` criada
+- [x] CRT-001 — `CartService` criado (signals, computed, persistência local), integrado ao Header
+- [x] Branch `feature/header` → PR → merge na `main` concluído
+
+**TODO — próxima etapa:**
+
+- [ ] Iniciar Épico 04 (Catálogo) — ProductService, ProductList, ProductCard
+- [ ] Ao criar o ProductCard, testar `CartService.add()`/`remove()` na prática pela primeira vez (CRT-002/003)
 
 ### v0.2.5 — Fundação concluída
 
