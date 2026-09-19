@@ -5,10 +5,7 @@
     <ul class="product-grid">
       @for (product of productService.products(); track product.id) {
         <li class="product-grid__item">
-          <img [src]="product.imageUrl" [alt]="product.name" class="product-grid__image" />
-          <h3 class="product-grid__name">{{ product.name }}</h3>
-          <p class="product-grid__category">{{ product.category }}</p>
-          <p class="product-grid__price">R$ {{ product.price.toFixed(2) }}</p>
+          <app-product-card [product]="product"></app-product-card>
         </li>
       }
     </ul>

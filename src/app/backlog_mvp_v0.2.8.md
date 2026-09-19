@@ -1,6 +1,6 @@
 # Backlog MVP — E-commerce da Marca
 
-> **Versão:** 0.2.7 (ProductService concluído)
+> **Versão:** 0.2.8 (ProductList concluído)
 > **Status geral do projeto:** iniciado — Angular criado, repositório conectado ao GitHub
 > **Nome da marca:** a definir
 > **Nicho:** roupas oversized para treino
@@ -123,7 +123,7 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 | --- | --- | --- | --- | --- | --- |
 | [x] | CAT-001 | Modelo `Product` inicial | concluído | alta | `feature/header` |
 | [x] | CAT-002 | ProductService | concluído | alta | `feature/product-service` |
-| [ ] | CAT-003 | ProductList | todo | alta | --- |
+| [x] | CAT-003 | ProductList | concluído | alta | `feature/product-list` |
 | [ ] | CAT-004 | ProductCard | todo | alta | --- |
 | [ ] | CAT-005 | Filtro por categoria | todo | média | --- |
 | [ ] | CAT-006 | Busca por nome | todo | média | --- |
@@ -363,6 +363,22 @@ Programa de fidelidade, cupons, avaliações, wishlist, recomendações, recuper
 ### Decisões
 - Alguma decisão técnica tomada nesse momento, se houver
 ```
+
+### v0.2.8 — ProductList concluído
+
+**Concluído:**
+
+- [x] CAT-003 — `ProductList` criado, consumindo o `ProductService` de verdade (sem gambiarra de teste)
+- [x] Grid responsivo com CSS Grid (`repeat(auto-fill, minmax(220px, 1fr))`) validado visualmente
+- [x] HTML semântico (`<section>`, `<ul>/<li>`)
+- [x] Conectado ao `app.html`, os 5 produtos aparecem corretamente na tela
+- [x] Branch `feature/product-list` → PR → merge na `main` concluído
+
+**Nota:** o HTML do card de produto está, por enquanto, direto dentro do `product-list.html`. Será extraído para o `ProductCard` (CAT-004) na próxima etapa.
+
+**TODO — próxima etapa:**
+
+- [ ] Iniciar CAT-004 (ProductCard) — extrair o card para componente reutilizável e testar `CartService.add()` pela primeira vez
 
 ### v0.2.7 — ProductService concluído
 
