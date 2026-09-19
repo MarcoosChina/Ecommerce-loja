@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Moletom Oversized Cinza",
+    "price": 189.9,
+    "category": "Moletom",
+    "imageUrl": "https://placehold.co/400x400?text=Moletom",
+    "description": "Moletom oversized em algodão pesado, ideal para treino e uso casual."
+  },
+  {
+    "id": 2,
+    "name": "Camiseta Oversized Preta",
+    "price": 89.9,
+    "category": "Camiseta",
+    "imageUrl": "https://placehold.co/400x400?text=Camiseta",
+    "description": "Camiseta oversized 100% algodão, corte reto e caimento solto."
+  },
+  {
+    "id": 3,
+    "name": "Short Oversized Treino",
+    "price": 119.9,
+    "category": "Short",
+    "imageUrl": "https://placehold.co/400x400?text=Short",
+    "description": "Short largo em tecido leve, respirável, ideal para treinos intensos."
+  },
+  {
+    "id": 4,
+    "name": "Moletom Oversized Preto",
+    "price": 199.9,
+    "category": "Moletom",
+    "imageUrl": "https://placehold.co/400x400?text=Moletom+2",
+    "description": "Moletom oversized com capuz, forro interno macio."
+  },
+  {
+    "id": 5,
+    "name": "Camiseta Oversized Branca",
+    "price": 89.9,
+    "category": "Camiseta",
+    "imageUrl": "https://placehold.co/400x400?text=Camiseta+2",
+    "description": "Camiseta oversized básica, tecido encorpado, não marca."
+  }
+]
