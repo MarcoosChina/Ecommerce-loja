@@ -1,22 +1,22 @@
-/* Cores provisórias — trocar quando a identidade visual (Épico 02) for definida */
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* pedido: logo, nav e carrinho nas pontas */
+  justify-content: space-between;
   padding: 0.75rem 1.25rem;
-  background: #1a1a2e;
-  color: #f5f5f5;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-surface);
   position: relative;
 }
 
 .header__brand {
   color: inherit;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
 }
 
-/* Botão hambúrguer: visível por padrão (mobile-first) */
 .header__toggle {
   display: flex;
   flex-direction: column;
@@ -34,14 +34,14 @@
   border-radius: 2px;
 }
 
-/* Nav escondida por padrão no mobile, vira dropdown ao abrir */
 .header__nav {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  background: #1a1a2e;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-surface);
 }
 
 .header__nav--open {
@@ -60,6 +60,7 @@
 .header__nav a {
   color: inherit;
   text-decoration: none;
+  font-family: var(--font-body);
 }
 
 .header__cart {
@@ -77,8 +78,8 @@
   position: absolute;
   top: -8px;
   right: -10px;
-  background: #e94560;
-  color: white;
+  background: var(--color-accent);
+  color: var(--color-text);
   border-radius: 50%;
   padding: 1px 6px;
   font-size: 0.7rem;
@@ -86,7 +87,6 @@
   line-height: 1.4;
 }
 
-/* A partir de 768px (tablet/desktop): nav sempre visível, hambúrguer some */
 @media screen and (min-width: 768px) {
   .header__toggle {
     display: none;
@@ -96,6 +96,7 @@
     display: block;
     position: static;
     background: none;
+    border: none;
   }
 
   .header__nav ul {

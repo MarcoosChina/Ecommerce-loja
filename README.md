@@ -2,7 +2,7 @@
 
 > E-commerce de roupas oversized para treino — projeto de portfólio com potencial de evoluir para uma marca real.
 
-**Status atual:** 🟡 Em planejamento — nenhum código escrito ainda. Veja o [backlog completo](./backlog_mvp_v0.2.3.md) para o roteiro detalhado.
+**Status atual:** 🟢 Em desenvolvimento — Header, catálogo de produtos e identidade visual já funcionais. Veja o [backlog completo](./backlog_mvp.md) para o roteiro detalhado.
 
 ---
 
@@ -11,6 +11,7 @@
 Este repositório contém o desenvolvimento de um catálogo de e-commerce, construído como projeto de estudo dentro do curso de Front-End Angular (SCTEC), com a intenção de futuramente se tornar o catálogo oficial de uma marca própria de roupas oversized voltadas para treino.
 
 O projeto prioriza:
+
 - experiência de compra simples e moderna
 - catálogo de produtos bem estruturado
 - responsividade
@@ -23,61 +24,61 @@ O projeto prioriza:
 ## Stack
 
 | Camada | Tecnologias |
-|---|---|
+| --- | --- |
 | Front-end | Angular, TypeScript, HTML, CSS |
 | Back-end | Node.js, API REST |
 | Futuro (sob demanda) | Banco de dados, ORM, autenticação, testes automatizados, gerenciamento de estado, gateway de pagamento, Docker, CI/CD |
 
-## Funcionalidades planejadas (MVP)
+## Funcionalidades
 
-- [ ] Listagem de produtos com imagem, nome, preço e categoria
-- [ ] Filtro por categoria e busca por nome
-- [ ] Ordenação por preço
-- [ ] Seleção de tamanho (P/M/G/GG)
+- [x] Header com logo, menu (hambúrguer no mobile) e ícone de carrinho com badge dinâmica
+- [x] Listagem de produtos com imagem, nome, preço e categoria (grid responsivo)
+- [x] Carrinho de compras com persistência local (adicionar produto validado)
+- [x] Identidade visual aplicada (paleta de cores e tipografia)
+- [ ] Filtro por categoria e busca por nome *(pausado temporariamente — ver backlog)*
+- [ ] Ordenação por preço *(pausado temporariamente — ver backlog)*
+- [ ] Seção de destaque (Hero) na Home
 - [ ] Página de detalhes do produto
-- [ ] Carrinho de compras com persistência local
+- [ ] Remover item / editar quantidade no carrinho
 - [ ] Checkout simulado (sem pagamento real)
-- [ ] Layout responsivo (mobile-first)
 - [ ] API própria em Node.js consumida pelo front-end
 
-Fora do escopo do MVP por enquanto: pagamento real, frete, autenticação de usuário, painel administrativo, banco de dados — ver seção "Fora do MVP" no backlog.
+Fora do escopo do MVP por enquanto: pagamento real, frete, autenticação de usuário, painel administrativo, banco de dados, seleção de tamanho — ver seção "Fora do MVP" no backlog.
 
-## Estrutura do projeto (planejada)
+## Estrutura do projeto
 
 ```
 Ecommerce-loja/
+├── public/
+│   └── data/
+│       └── products.json
 ├── src/
 │   ├── app/
 │   │   ├── components/
 │   │   │   ├── header/
 │   │   │   ├── product-list/
-│   │   │   ├── product-card/
-│   │   │   ├── product-detail/
-│   │   │   ├── cart/
-│   │   │   └── checkout/
+│   │   │   └── product-card/
 │   │   ├── services/
 │   │   │   ├── product.service.ts
 │   │   │   └── cart.service.ts
 │   │   ├── models/
 │   │   │   └── product.ts
-│   │   └── app.routes.ts
-│   └── data/
-│       └── products.json
+│   │   ├── app.ts
+│   │   └── app.html
+│   └── styles.css        (tokens globais: cores e tipografia)
 ├── backend/            (futuro — API Node.js)
 ├── backlog_mvp.md
 ├── TODOS.md
 └── README.md
 ```
 
+Componentes futuros (Épico 05 em diante): `product-detail/`, `cart/`, `checkout/`.
+
 ## Como rodar o projeto
-
-> Ainda não aplicável — o projeto ainda não foi criado. Esta seção será preenchida assim que o `ng new` for executado (tarefa `FND-001` do backlog).
-
-Quando estiver disponível, o fluxo será:
 
 ```bash
 # clonar o repositório
-git clone https://github.com/<seu-usuario>/Ecommerce-loja.git
+git clone https://github.com/MarcoosChina/Ecommerce-loja.git
 cd Ecommerce-loja
 
 # instalar dependências
@@ -86,6 +87,7 @@ npm install
 # rodar em ambiente de desenvolvimento
 ng serve
 ```
+
 Acesse `http://localhost:4200`.
 
 ## Padrões de código
@@ -107,6 +109,7 @@ Backlog → GitHub Issue → Branch → Desenvolvimento → Commit
 ```
 
 Convenção de branches:
+
 ```
 feature/nome-da-feature
 fix/nome-do-problema
@@ -117,8 +120,8 @@ chore/nome-da-tarefa
 
 ## Roadmap
 
-1. **Fase 0 — Organização:** estrutura do projeto, Git/GitHub, fluxo de branches, identidade visual provisória
-2. **Fase 1 — MVP Front-end:** catálogo, busca, filtros, detalhe do produto, tamanhos, carrinho, checkout simulado, responsividade
+1. **Fase 0 — Organização:** ✅ estrutura do projeto, Git/GitHub, fluxo de branches
+2. **Fase 1 — MVP Front-end:** 🟡 em andamento — Header, catálogo e identidade visual prontos; faltam detalhe do produto, carrinho completo, checkout, filtros/busca/ordenação (retomados após a identidade), Hero section
 3. **Fase 2 — API:** API própria em Node.js, integração com o front-end
 4. **Fase 3 — Persistência:** avaliação e integração de banco de dados
 5. **Fase 4 — Compra simulada completa:** fluxo ponta a ponta validado
@@ -132,7 +135,20 @@ Projeto desenvolvido praticando, no contexto do curso SCTEC Carreira Tech: HTML 
 
 ## Marca
 
-Nome da marca ainda **a definir**. O catálogo é construído desde já pensando em receber a identidade visual definitiva (paleta de cores, tipografia e logo) assim que estiver decidida — ver Épico 02 do backlog.
+Nome ainda **a definir**. Escopo inicial de produto: **somente camisetas oversized** (moletom, calça e shorts ficam para uma expansão futura).
+
+Identidade visual já definida:
+
+| Token | Valor |
+| --- | --- |
+| Fundo | `#16151A` (Asfalto) |
+| Superfície (cards) | `#221F26` (Concreto) |
+| Texto principal | `#EDEAE4` (Giz) |
+| Texto secundário | `#8B8790` (Fumaça) |
+| Destaque (CTAs, preço) | `#C4551F` (Ferro Oxidado) |
+| Secundária (uso raro) | `#4C6B8A` (Aço) |
+
+Tipografia: títulos e preço em fonte condensada/pesada (Archivo Black), corpo de texto em Inter.
 
 ## Licença
 
