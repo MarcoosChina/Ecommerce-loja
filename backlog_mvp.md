@@ -1,9 +1,9 @@
 # Backlog MVP — E-commerce da Marca
 
-> **Versão:** 0.2.8 (ProductList concluído)
-> **Status geral do projeto:** iniciado — Angular criado, repositório conectado ao GitHub
+> **Versão:** 0.3.0 (identidade visual definida + escopo de produto reduzido)
+> **Status geral do projeto:** em desenvolvimento — Header, ProductService, ProductList e ProductCard funcionais; agora em fase de identidade visual antes de continuar as funcionalidades
 > **Nome da marca:** a definir
-> **Nicho:** roupas oversized para treino
+> **Nicho atual:** camisetas oversized para treino (moletom, calça e shorts adiados até decisão futura de expandir)
 > **Repositório:** `Ecommerce-loja`
 
 ## 1. Visão do projeto
@@ -96,11 +96,27 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
 | [ ] | BRD-001 | Definir nome da marca | todo | alta | --- |
-| [ ] | BRD-002 | Definir paleta de cores | todo | alta | --- |
-| [ ] | BRD-003 | Definir tipografia | todo | alta | --- |
+| [x] | BRD-002 | Definir paleta de cores | concluído | alta | `feature/visual-identity` |
+| [x] | BRD-003 | Definir tipografia | concluído | alta | `feature/visual-identity` |
 | [ ] | BRD-004 | Criar logo provisório | todo | média | --- |
-| [ ] | BRD-005 | Criar variáveis/tokens de estilo | todo | média | --- |
-| [ ] | BRD-006 | Aplicar identidade visual | todo | alta | --- |
+| [ ] | BRD-005 | Criar variáveis/tokens de estilo | todo | alta | `feature/visual-identity` |
+| [ ] | BRD-006 | Aplicar identidade visual (Header e ProductCard) | todo | alta | --- |
+
+**Paleta definida (BRD-002):**
+
+```
+Asfalto        #16151A  — fundo principal
+Concreto       #221F26  — superfície dos cards
+Giz            #EDEAE4  — texto principal
+Fumaça         #8B8790  — texto secundário
+Ferro Oxidado  #C4551F  — cor de destaque (CTAs, preço)
+Aço            #4C6B8A  — uso raro (links, estado secundário)
+```
+
+**Tipografia definida (BRD-003):**
+
+- Display/títulos/preço: fonte condensada e pesada (Archivo Black ou Anton)
+- Corpo/descrições: sans neutra (Inter)
 
 ### Épico 03 — Layout e navegação
 
@@ -116,6 +132,7 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 | [ ] | UI-008 | Error states | todo | média | --- |
 | [ ] | UI-009 | Catálogo vazio | todo | média | --- |
 | [ ] | UI-010 | Acessibilidade básica | todo | média | --- |
+| [ ] | UI-011 | Criar seção Hero de abertura na Home | todo | alta | `feature/hero-section` (futuro) |
 
 ### Épico 04 — Catálogo
 
@@ -124,14 +141,15 @@ Toda tarefa concluída deve registrar branch e, quando houver, PR.
 | [x] | CAT-001 | Modelo `Product` inicial | concluído | alta | `feature/header` |
 | [x] | CAT-002 | ProductService | concluído | alta | `feature/product-service` |
 | [x] | CAT-003 | ProductList | concluído | alta | `feature/product-list` |
-| [ ] | CAT-004 | ProductCard | todo | alta | --- |
-| [ ] | CAT-005 | Filtro por categoria | todo | média | --- |
-| [ ] | CAT-006 | Busca por nome | todo | média | --- |
-| [ ] | CAT-007 | Ordenação por preço | todo | baixa | --- |
+| [x] | CAT-004 | ProductCard | concluído | alta | `feature/product-card` |
+| [ ] | CAT-005 | Filtro por categoria | pausado (ver nota) | média | --- |
+| [ ] | CAT-006 | Busca por nome | pausado (ver nota) | média | --- |
+| [ ] | CAT-007 | Ordenação por preço | pausado (ver nota) | baixa | --- |
 | [ ] | CAT-008 | Adaptar categorias ao nicho | todo | alta | --- |
 | [ ] | CAT-009 | Adicionar tamanhos | todo | alta | --- |
 | [ ] | CAT-010 | Revisar modelo de produto | todo | alta | --- |
 | [ ] | CAT-011 | Estado sem resultados | todo | média | --- |
+| [ ] | CAT-012 | Restringir catálogo à categoria única (Camiseta Oversized) | todo | alta | `feature/visual-identity` |
 
 **Modelo inicial:**
 
@@ -162,9 +180,9 @@ Product {
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
 | [x] | CRT-001 | CartService | concluído | alta | `feature/header` |
-| [ ] | CRT-002 | Adicionar produto | todo | alta | --- |
+| [x] | CRT-002 | Adicionar produto | concluído | alta | `feature/product-card` |
 | [ ] | CRT-003 | Remover produto | todo | alta | --- |
-| [ ] | CRT-004 | Persistência local | todo | alta | --- |
+| [x] | CRT-004 | Persistência local | concluído | alta | `feature/header` |
 | [ ] | CRT-005 | Página do carrinho | todo | alta | --- |
 | [ ] | CRT-006 | Tamanho no item | todo | alta | --- |
 | [ ] | CRT-007 | Alterar quantidade | todo | alta | --- |
@@ -175,7 +193,7 @@ Product {
 
 **Regra:** produtos iguais com tamanhos diferentes devem poder ser tratados como itens distintos.
 
-**Nota:** `CartService` foi criado e está funcional (usado pelo Header via `totalItems()`), mas `add()`/`remove()` ainda não foram testados na prática — isso só será possível quando o `ProductCard` existir (Épico 04) para de fato adicionar um produto ao carrinho.
+**Nota:** `add()` e a persistência via localStorage foram validados na prática (badge do Header soma corretamente e mantém o valor após F5). `remove()` ainda não foi testado — depende da página do Carrinho existir (CRT-005) para ter uma interface onde remover um item.
 
 ### Épico 07 — Checkout simulado
 
@@ -342,6 +360,9 @@ Uma tarefa só é `concluído` (e só deve receber `[x]`) quando: implementaçã
 - **DEC-004 — Banco de dados** (em aberto): escolher quando a persistência se tornar necessária
 - **DEC-005 — Dados mockados antes da API** (definida): front-end pode usar dados locais/mockados até a API estar pronta; integração real em etapa separada
 - **DEC-006 — Commit inicial de bootstrap direto na `main`** (definida): o primeiro commit (estrutura Angular + Git/GitHub + `.gitignore`) foi feito direto na `main`, sem branch/PR, por ser configuração inicial do projeto. **A partir daqui, todo o fluxo padrão (branch → commit → PR → revisão → merge) passa a ser seguido sem exceções.**
+- **DEC-007 — Identidade visual definida** (definida): paleta "Asfalto/Concreto/Giz/Fumaça/Ferro Oxidado/Aço" e tipografia condensada (Archivo Black/Anton) + Inter, inspiradas no universo de treino/ferro, evitando defaults genéricos de IA (cream+terracota, dark+neon, cards SaaS uniformes). Ver seção do Épico 02.
+- **DEC-008 — Escopo de produto reduzido** (definida): loja venderá inicialmente só camisetas oversized. Moletom, calça e shorts ficam fora até decisão futura de expandir a linha.
+- **DEC-009 — Prioridade temporária: visual antes de funcionalidade** (definida): CAT-005/006/007 (filtro, busca, ordenação) pausados para focar em aplicar a identidade visual no Header e ProductCard primeiro.
 
 ## 11. Fora do MVP
 
@@ -363,6 +384,46 @@ Programa de fidelidade, cupons, avaliações, wishlist, recomendações, recuper
 ### Decisões
 - Alguma decisão técnica tomada nesse momento, se houver
 ```
+
+### v0.3.0 — Identidade visual definida + escopo reduzido
+
+**Concluído:**
+
+- [x] BRD-002 — Paleta de cores definida (Asfalto, Concreto, Giz, Fumaça, Ferro Oxidado, Aço), com skill frontend-design usada para evitar padrões genéricos de IA
+- [x] BRD-003 — Tipografia definida (condensada/pesada para títulos e preço + Inter para corpo)
+
+**Decisões:**
+
+- [x] DEC-007, DEC-008, DEC-009 registradas (identidade visual, escopo de produto, prioridade temporária)
+
+**Pausado:**
+
+- [ ] CAT-005, CAT-006, CAT-007 — retomar depois que Header e ProductCard estiverem com a identidade aplicada
+
+**TODO — próxima etapa:**
+
+- [ ] CAT-012 — Editar `products.json`: remover Moletom e Short, manter só camisetas oversized (3-4 variantes: Preta, Branca, Cinza, Bege)
+- [ ] BRD-005 — Criar arquivo de tokens CSS (variáveis de cor e tipografia)
+- [ ] BRD-006 — Aplicar identidade no Header e no ProductCard
+- [ ] UI-011 — Hero section fica registrada para o futuro, branch própria (`feature/hero-section`), não faz parte do escopo imediato
+
+### v0.2.9 — ProductCard concluído
+
+**Concluído:**
+
+- [x] CAT-004 — `ProductCard` criado, extraído do `ProductList`, com botão "Adicionar ao carrinho"
+- [x] CRT-002 — `CartService.add()` validado na prática (badge soma corretamente a cada clique, inclusive quantidade do mesmo produto)
+- [x] CRT-004 — Persistência local validada (F5 mantém o número da badge)
+- [x] Branch `feature/product-card` → PR → merge na `main` concluído
+
+**Decisões:**
+
+- [x] Adiada a seleção de tamanho (CAT-009/PRD-003/CRT-006) para depois do fluxo de compra estar completo, conforme regra do MVP enxuto
+
+**TODO — próxima etapa:**
+
+- [ ] CAT-005/006/007 — filtro por categoria, busca por nome e ordenação por preço, numa mesma branch (`feature/product-filters`)
+- [ ] CRT-003 (remover produto) fica pendente até a página do Carrinho existir (CRT-005)
 
 ### v0.2.8 — ProductList concluído
 

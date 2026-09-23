@@ -1,42 +1,34 @@
 [
   {
     "id": 1,
-    "name": "Moletom Oversized Cinza",
-    "price": 189.9,
-    "category": "Moletom",
-    "imageUrl": "https://placehold.co/400x400?text=Moletom",
-    "description": "Moletom oversized em algodão pesado, ideal para treino e uso casual."
+    "name": "Oversized Base Preta",
+    "price": 129.9,
+    "category": "Camiseta Oversized",
+    "imageUrl": "https://placehold.co/500x500/16151A/8B8790?text=Oversized+Preta",
+    "description": "Camiseta oversized em algodão pesado, corte reto e caimento solto, feita para treino e uso diário."
   },
   {
     "id": 2,
-    "name": "Camiseta Oversized Preta",
-    "price": 89.9,
-    "category": "Camiseta",
-    "imageUrl": "https://placehold.co/400x400?text=Camiseta",
-    "description": "Camiseta oversized 100% algodão, corte reto e caimento solto."
+    "name": "Oversized Base Branca",
+    "price": 129.9,
+    "category": "Camiseta Oversized",
+    "imageUrl": "https://placehold.co/500x500/EDEAE4/16151A?text=Oversized+Branca",
+    "description": "Camiseta oversized 100% algodão, tecido encorpado que não marca, ideal para qualquer treino."
   },
   {
     "id": 3,
-    "name": "Short Oversized Treino",
-    "price": 119.9,
-    "category": "Short",
-    "imageUrl": "https://placehold.co/400x400?text=Short",
-    "description": "Short largo em tecido leve, respirável, ideal para treinos intensos."
+    "name": "Oversized Base Cinza",
+    "price": 129.9,
+    "category": "Camiseta Oversized",
+    "imageUrl": "https://placehold.co/500x500/8B8790/16151A?text=Oversized+Cinza",
+    "description": "Camiseta oversized em cinza mescla, corte solto, respirável, para treino ou dia a dia."
   },
   {
     "id": 4,
-    "name": "Moletom Oversized Preto",
-    "price": 199.9,
-    "category": "Moletom",
-    "imageUrl": "https://placehold.co/400x400?text=Moletom+2",
-    "description": "Moletom oversized com capuz, forro interno macio."
-  },
-  {
-    "id": 5,
-    "name": "Camiseta Oversized Branca",
-    "price": 89.9,
-    "category": "Camiseta",
-    "imageUrl": "https://placehold.co/400x400?text=Camiseta+2",
-    "description": "Camiseta oversized básica, tecido encorpado, não marca."
+    "name": "Oversized Base Bege",
+    "price": 129.9,
+    "category": "Camiseta Oversized",
+    "imageUrl": "https://placehold.co/500x500/D9C7A8/16151A?text=Oversized+Bege",
+    "description": "Camiseta oversized em bege areia, tecido pesado, caimento largo e confortável."
   }
 ]
