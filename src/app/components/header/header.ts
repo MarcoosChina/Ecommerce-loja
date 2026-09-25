@@ -10,7 +10,6 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './header.css'
 })
 export class Header {
-  // Estado do menu hambúrguer (fechado por padrão)
   isMenuOpen = signal(false);
 
   constructor(public cartService: CartService) {}

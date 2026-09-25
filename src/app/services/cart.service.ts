@@ -42,6 +42,20 @@ export class CartService {
     this.saveToStorage(items);
   }
 
+  updateQuantity(productId: number, quantity: number): void {
+    if (quantity <= 0) {
+      this.remove(productId);
+      return;
+    }
+
+    const items = this.itemsSignal().map(item =>
+      item.product.id === productId ? { ...item, quantity } : item
+    );
+
+    this.itemsSignal.set(items);
+    this.saveToStorage(items);
+  }
+
   clear() {
     this.itemsSignal.set([]);
     localStorage.removeItem('carrinho');

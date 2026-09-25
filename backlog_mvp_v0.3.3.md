@@ -1,6 +1,6 @@
 # Backlog MVP — E-commerce da Marca
 
-> **Versão:** 0.3.1 (identidade visual aplicada)
+> **Versão:** 0.3.3 (ProductDetail concluído)
 > **Status geral do projeto:** em desenvolvimento — Header, ProductService, ProductList e ProductCard funcionais; agora em fase de identidade visual antes de continuar as funcionalidades
 > **Nome da marca:** a definir
 > **Nicho atual:** camisetas oversized para treino (moletom, calça e shorts adiados até decisão futura de expandir)
@@ -142,13 +142,13 @@ Aço            #4C6B8A  — uso raro (links, estado secundário)
 | [x] | CAT-002 | ProductService | concluído | alta | `feature/product-service` |
 | [x] | CAT-003 | ProductList | concluído | alta | `feature/product-list` |
 | [x] | CAT-004 | ProductCard | concluído | alta | `feature/product-card` |
-| [ ] | CAT-005 | Filtro por categoria | pausado (ver nota) | média | --- |
-| [ ] | CAT-006 | Busca por nome | pausado (ver nota) | média | --- |
-| [ ] | CAT-007 | Ordenação por preço | pausado (ver nota) | baixa | --- |
+| [x] | CAT-005 | Filtro por categoria | concluído | média | `feature/product-filters` (#17) |
+| [x] | CAT-006 | Busca por nome | concluído | média | `feature/product-filters` (#18) |
+| [x] | CAT-007 | Ordenação por preço | concluído | baixa | `feature/product-filters` (#19) |
 | [ ] | CAT-008 | Adaptar categorias ao nicho | todo | alta | --- |
 | [ ] | CAT-009 | Adicionar tamanhos | todo | alta | --- |
 | [ ] | CAT-010 | Revisar modelo de produto | todo | alta | --- |
-| [ ] | CAT-011 | Estado sem resultados | todo | média | --- |
+| [x] | CAT-011 | Estado sem resultados | concluído | média | `feature/product-filters` |
 | [x] | CAT-012 | Restringir catálogo à categoria única (Camiseta Oversized) | concluído | alta | `feature/visual-identity` |
 
 **Modelo inicial:**
@@ -169,11 +169,11 @@ Product {
 
 | Feito | ID | Tarefa | Status | Prioridade | Branch/PR |
 | --- | --- | --- | --- | --- | --- |
-| [ ] | PRD-001 | ProductDetail | todo | alta | --- |
-| [ ] | PRD-002 | Informações completas do produto | todo | alta | --- |
-| [ ] | PRD-003 | Seleção de tamanho | todo | alta | --- |
-| [ ] | PRD-004 | Adicionar ao carrinho | todo | alta | --- |
-| [ ] | PRD-005 | Produto inexistente | todo | média | --- |
+| [x] | PRD-001 | ProductDetail | concluído | alta | `feature/product-detail` |
+| [x] | PRD-002 | Informações completas do produto | concluído | alta | `feature/product-detail` |
+| [ ] | PRD-003 | Seleção de tamanho | todo (adiado) | alta | --- |
+| [x] | PRD-004 | Adicionar ao carrinho | concluído | alta | `feature/product-detail` |
+| [x] | PRD-005 | Produto inexistente | concluído | média | `feature/product-detail` |
 
 ### Épico 06 — Carrinho
 
@@ -362,7 +362,7 @@ Uma tarefa só é `concluído` (e só deve receber `[x]`) quando: implementaçã
 - **DEC-006 — Commit inicial de bootstrap direto na `main`** (definida): o primeiro commit (estrutura Angular + Git/GitHub + `.gitignore`) foi feito direto na `main`, sem branch/PR, por ser configuração inicial do projeto. **A partir daqui, todo o fluxo padrão (branch → commit → PR → revisão → merge) passa a ser seguido sem exceções.**
 - **DEC-007 — Identidade visual definida** (definida): paleta "Asfalto/Concreto/Giz/Fumaça/Ferro Oxidado/Aço" e tipografia condensada (Archivo Black/Anton) + Inter, inspiradas no universo de treino/ferro, evitando defaults genéricos de IA (cream+terracota, dark+neon, cards SaaS uniformes). Ver seção do Épico 02.
 - **DEC-008 — Escopo de produto reduzido** (definida): loja venderá inicialmente só camisetas oversized. Moletom, calça e shorts ficam fora até decisão futura de expandir a linha.
-- **DEC-009 — Prioridade temporária: visual antes de funcionalidade** (definida): CAT-005/006/007 (filtro, busca, ordenação) pausados para focar em aplicar a identidade visual no Header e ProductCard primeiro.
+- **DEC-009 — Prioridade temporária: visual antes de funcionalidade** (concluída): CAT-005/006/007 foram pausados para aplicar a identidade visual primeiro, e retomados e concluídos logo em seguida.
 
 ## 11. Fora do MVP
 
@@ -384,6 +384,39 @@ Programa de fidelidade, cupons, avaliações, wishlist, recomendações, recuper
 ### Decisões
 - Alguma decisão técnica tomada nesse momento, se houver
 ```
+
+### v0.3.3 — ProductDetail concluído
+
+**Concluído:**
+
+- [x] PRD-001 — Rota `/produto/:id` criada, `ProductDetail` funcional
+- [x] PRD-002 — Exibição completa (imagem, nome, categoria, preço, descrição)
+- [x] PRD-004 — `CartService.add()` validado também a partir do detalhe do produto
+- [x] PRD-005 — Produto inexistente tratado ("Produto não encontrado" + botão voltar), testado via `/produto/999`
+- [x] Router configurado de verdade pela primeira vez (`app.routes.ts`), `ProductList` deixou de estar fixo no `app.html`
+- [x] `ProductCard` atualizado com link (`routerLink`) para o detalhe
+- [x] Branch `feature/product-detail` → PR → merge na `main` concluído
+
+**TODO — próxima etapa:**
+
+- [ ] Épico 06 — página real do Carrinho (ver lista de itens, remover, editar quantidade)
+- [ ] PRD-003 (seleção de tamanho) segue adiado
+
+### v0.3.2 — Filtro, busca e ordenação concluídos
+
+**Concluído:**
+
+- [x] CAT-005 — Filtro por categoria (Issue #17)
+- [x] CAT-006 — Busca por nome (Issue #18)
+- [x] CAT-007 — Ordenação por preço (Issue #19)
+- [x] Os três funcionando combinados (busca + categoria + ordenação), testado e validado
+- [x] Contador "X produto(s) encontrado(s)" adicionado como extra de UX
+- [x] Branch `feature/product-filters` → PR (Closes #17, #18, #19) → merge na `main` concluído
+
+**TODO — próxima etapa:**
+
+- [ ] Épico 04 quase completo — restam CAT-008 (adaptar categorias, já parcialmente resolvido por CAT-012), CAT-009 (tamanhos, adiado), CAT-010 (revisar modelo), CAT-011 (estado sem resultados, já implementado como "Nenhum produto encontrado" — só falta marcar)
+- [ ] Decidir entre: ProductDetail (Épico 05) ou página real do Carrinho (Épico 06)
 
 ### v0.3.1 — Identidade visual aplicada
 
