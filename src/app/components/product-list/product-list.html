@@ -1,9 +1,42 @@
 <section class="product-list" aria-label="Lista de produtos">
-  @if (productService.products().length === 0) {
+  <form class="product-filters" role="search">
+    <div class="product-filters__field">
+      <label for="search">Buscar</label>
+      <input
+        id="search"
+        type="text"
+        placeholder="Nome do produto..."
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+      />
+    </div>
+
+    <div class="product-filters__field">
+      <label for="category">Categoria</label>
+      <select id="category" [(ngModel)]="selectedCategory" name="selectedCategory">
+        @for (cat of categories(); track cat) {
+          <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="product-filters__field">
+      <label for="sort">Ordenar por preço</label>
+      <select id="sort" [(ngModel)]="sortOrder" name="sortOrder">
+        <option value="">Padrão</option>
+        <option value="asc">Menor preço</option>
+        <option value="desc">Maior preço</option>
+      </select>
+    </div>
+  </form>
+
+  <p class="product-list__count">{{ filteredProducts().length }} produto(s) encontrado(s)</p>
+
+  @if (filteredProducts().length === 0) {
     <p class="product-list__empty">Nenhum produto encontrado.</p>
   } @else {
     <ul class="product-grid">
-      @for (product of productService.products(); track product.id) {
+      @for (product of filteredProducts(); track product.id) {
         <li class="product-grid__item">
           <app-product-card [product]="product"></app-product-card>
         </li>
