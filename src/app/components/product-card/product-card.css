@@ -56,3 +56,7 @@
 .product-card__button:hover {
   background: var(--color-accent-hover);
 }
+.product-card__link {
+  color: inherit;
+  text-decoration: none;
+}

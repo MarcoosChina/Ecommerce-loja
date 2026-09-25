@@ -1,0 +1,28 @@
+<section class="product-detail" aria-label="Detalhes do produto">
+  @if (product(); as p) {
+    <img [src]="p.imageUrl" [alt]="p.name" class="product-detail__image" />
+
+    <div class="product-detail__info">
+      <h2 class="product-detail__name">{{ p.name }}</h2>
+      <p class="product-detail__category">{{ p.category }}</p>
+      <p class="product-detail__price">R$ {{ p.price.toFixed(2) }}</p>
+      <p class="product-detail__description">{{ p.description }}</p>
+
+      <div class="product-detail__actions">
+        <button type="button" class="product-detail__button" (click)="addToCart()">
+          Adicionar ao carrinho
+        </button>
+        <button type="button" class="product-detail__back" (click)="voltar()">
+          Voltar ao catálogo
+        </button>
+      </div>
+    </div>
+  } @else {
+    <div class="product-detail__not-found">
+      <p>Produto não encontrado.</p>
+      <button type="button" class="product-detail__back" (click)="voltar()">
+        Voltar ao catálogo
+      </button>
+    </div>
+  }
+</section>
